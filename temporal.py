@@ -6,8 +6,12 @@ import channels
 import utils
 from copy import copy
 
-data = np.array([[1,0,1,1,0,1,0,1]])
+data_length = 20
 
-# mod_demod.qpsk(data)
+data = bit_gen.bitgen_light(data_length)
 
-mod_demod.eight_psk(data)
+# data = bit_gen.bitgen_heavy(data_length)
+
+mod_demod.qpsk(data)
+
+# mod_demod.eight_psk(data)

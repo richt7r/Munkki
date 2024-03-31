@@ -6,23 +6,25 @@ def qpsk(data):
     if condition:
         data = np.append(data,np.zeros(2 - condition,dtype=np.int32))
     data = data.reshape((data.size//2),2)
-    print(data)
+    i = 0
+    mod_data = np.ones(data.size,)
     for point in data:
         if all(point == np.array([1,1])):
-            print(1+1j)
+            data[i] = 1+1j
             continue
         if all(point == np.array([0,1])):
-            print(-1+1j)
+            data[i] = -1+1j
             continue
         if all(point == np.array([0,0])):
-            print(-1-1j)
+            data[i] = -1-1j
             continue
         if all(point == np.array([1,0])):
-            print(1-1j)
+            data[i] = 1-1j
             continue
         else:
             print(f"invalid_data_volue(neither 1 nor 0)")
             exit()
+        i+=1
     return 
     
 def eight_psk(data):
